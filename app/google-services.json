@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "442332234229",
+    "firebase_url": "https://signupsys-95524.firebaseio.com",
+    "project_id": "signupsys-95524",
+    "storage_bucket": "signupsys-95524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442332234229:android:9af68a22c38aaa213720bc",
+        "android_client_info": {
+          "package_name": "com.example.class_room"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442332234229-sv3mqmmvu136s0i4hsohneicpgt0gidn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_w9mTUBACxtedbZYEk1QlF767s0rsv1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442332234229-sv3mqmmvu136s0i4hsohneicpgt0gidn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442332234229:android:f29c69e2bed542773720bc",
+        "android_client_info": {
+          "package_name": "com.example.virtualclassroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442332234229-sv3mqmmvu136s0i4hsohneicpgt0gidn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_w9mTUBACxtedbZYEk1QlF767s0rsv1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442332234229-sv3mqmmvu136s0i4hsohneicpgt0gidn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
