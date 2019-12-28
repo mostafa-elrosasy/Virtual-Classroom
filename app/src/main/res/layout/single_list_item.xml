@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/appIconIV"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@color/bg_login" />
+
+    <TextView
+        android:id="@+id/aNametxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/appIconIV"
+        android:layout_toRightOf="@+id/appIconIV"
+        android:maxLines="1"
+        android:text="the title of the article"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/aVersiontxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aNametxt"
+        android:layout_alignStart="@+id/aNametxt"
+        android:layout_alignLeft="@+id/aNametxt"
+        android:maxLines="1"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+        android:textSize="14sp" />
+
+
+
+</RelativeLayout>
