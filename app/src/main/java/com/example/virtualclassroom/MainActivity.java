@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
-    private Button btnSignIn, btnSignUp, btnResetPassword;
+    private Button btnSignIn, btnSignUp, btnResetPassword, test;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
 
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(getBaseContext(), ShowArticleActivity.class);
+        startActivity(intent);
 
         auth = FirebaseAuth.getInstance();
 
@@ -79,6 +81,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        test = findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), UploadActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
 
 }

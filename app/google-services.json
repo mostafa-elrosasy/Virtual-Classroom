@@ -44,6 +44,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "442332234229-bbdhm2jl4oms78785as5bh57lfbavhea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.virtualclassroom",
+            "certificate_hash": "2c86062859dc22578f401c7adc2a472bbdd9fe8b"
+          }
+        },
+        {
           "client_id": "442332234229-sv3mqmmvu136s0i4hsohneicpgt0gidn.apps.googleusercontent.com",
           "client_type": 3
         }
