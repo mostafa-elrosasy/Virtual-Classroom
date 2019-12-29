@@ -12,9 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".ShowArticleActivity"></activity>
         <activity android:name=".SubmitActivity" />
         <activity android:name=".UploadActivity" />
+=======
+        <activity android:name=".Blog"></activity>
+        <activity android:name=".LoginActivity" />
+>>>>>>> 67c2cb6c2cc5b76e7c56e44eda180e6ec42ff0b3
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

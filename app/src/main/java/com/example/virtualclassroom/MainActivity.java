@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,8 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
-    private Button btnSignIn, btnSignUp, btnResetPassword, test;
-    private ProgressBar progressBar;
+    private Button btnSignIn, btnSignUp, btnResetPassword;
+//    private ProgressBar progressBar;
     private FirebaseAuth auth;
 
     @Override
@@ -31,11 +30,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getBaseContext(), ShowArticleActivity.class);
         startActivity(intent);
 
+        Intent inten = new Intent(getBaseContext(),Blog.class);
+        startActivity(inten);
+
         auth = FirebaseAuth.getInstance();
 
         btnSignUp = findViewById(R.id.button);
-        inputEmail = findViewById(R.id.editText);
-        inputPassword = findViewById(R.id.editText2);
+        btnSignIn = findViewById(R.id.button2);
+        inputEmail = findViewById(R.id.username);
+        inputPassword = findViewById(R.id.password);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,13 +67,41 @@ public class MainActivity extends AppCompatActivity {
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-//                                Toast.makeText(MainActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
 //                                progressBar.setVisibility(View.GONE);
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-//                                    Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    startActivity(new Intent(MainActivity.this, SignupActivity.class));
+                                    finish();
+                                }
+                            }
+                        });
+
+            }
+        });
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String email = inputEmail.getText().toString().trim();
+                String password = inputPassword.getText().toString().trim();
+//                progressBar.setVisibility(View.VISIBLE);
+                //create user
+                auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(MainActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+//                                progressBar.setVisibility(View.GONE);
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(), Toast.LENGTH_SHORT).show();
                                 } else {
                                     startActivity(new Intent(MainActivity.this, SignupActivity.class));
                                     finish();
@@ -81,13 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        test = findViewById(R.id.test);
-        test.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), UploadActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 
