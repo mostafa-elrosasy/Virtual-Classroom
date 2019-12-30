@@ -32,4 +32,8 @@
     <!--    Submit Activity -->
     <string name="chooseBtn">Choose Image</string>
     <string name="SubmitBtn">Submit Article</string>
+    <string name="title_activity_the_blog">TheBlog</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

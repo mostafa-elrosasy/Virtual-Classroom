@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/appIconIV"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="90dp"
+        android:layout_height="119dp"
         app:srcCompat="@color/bg_login" />
 
     <TextView
@@ -23,17 +23,22 @@
         android:layout_toRightOf="@+id/appIconIV"
         android:maxLines="1"
         android:text="the title of the article"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/aVersiontxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="301dp"
+        android:layout_height="77dp"
         android:layout_below="@+id/aNametxt"
         android:layout_alignStart="@+id/aNametxt"
         android:layout_alignLeft="@+id/aNametxt"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="8sp"
         android:maxLines="1"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat\n cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
         android:textSize="14sp" />
 
 

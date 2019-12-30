@@ -3,13 +3,17 @@ package com.example.virtualclassroom;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,15 +41,30 @@ public class Blog extends AppCompatActivity {
         final ListView list = findViewById(R.id.list);
         lView = (ListView) findViewById(R.id.list);
 
-
-        fab = findViewById(R.id.floatingActionButton);
-        fab.setOnClickListener(new View.OnClickListener() {
+        BottomNavigationView nav = findViewById(R.id.nav_view);
+        nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Intent inten = new Intent(getBaseContext(),SubmitActivity.class);
-                startActivity(inten);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                if (id == R.id.navigation_dashboard){
+                    Intent inten = new Intent(getBaseContext(),SubmitActivity.class);
+                    startActivity(inten);
+                } else if(id == R.id.navigation_notifications){
+                    FirebaseAuth.getInstance().signOut();
+                    Intent inten = new Intent(getBaseContext(),MainActivity.class);
+                    startActivity(inten);
+                }
+                return false;
             }
         });
+//        fab = findViewById(R.id.floatingActionButton);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent inten = new Intent(getBaseContext(),SubmitActivity.class);
+//                startActivity(inten);
+//            }
+//        });
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
 
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("articles");
