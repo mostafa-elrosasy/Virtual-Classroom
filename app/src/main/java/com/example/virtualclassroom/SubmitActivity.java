@@ -1,8 +1,5 @@
 package com.example.virtualclassroom;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -137,7 +137,7 @@ public class SubmitActivity extends AppCompatActivity {
         JSONObject article = new JSONObject();
         try {
             article.put("text",text);
-            article.put("url",url);
+            article.put("url",this.name);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -150,6 +150,7 @@ public class SubmitActivity extends AppCompatActivity {
         String text = content.getText().toString();
         if(url != null){
             makeObject(url,text);
+            finish();
         }else{
             Toast.makeText(getApplicationContext(), "the url is null", Toast.LENGTH_LONG).show();
         }

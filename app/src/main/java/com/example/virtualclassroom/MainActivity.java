@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,11 +28,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(getBaseContext(), ShowArticleActivity.class);
-        startActivity(intent);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(getBaseContext(), Blog.class);
+            startActivity(intent);
+        }
 
-        Intent inten = new Intent(getBaseContext(),Blog.class);
-        startActivity(inten);
+
+//        Intent inten = new Intent(getBaseContext(),Blog.class);
+//        startActivity(inten);
 
         auth = FirebaseAuth.getInstance();
 
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(MainActivity.this, SignupActivity.class));
+                                    startActivity(new Intent(MainActivity.this, Blog.class));
                                     finish();
                                 }
                             }
@@ -103,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(MainActivity.this, SignupActivity.class));
+                                    startActivity(new Intent(MainActivity.this, Blog.class));
                                     finish();
                                 }
                             }

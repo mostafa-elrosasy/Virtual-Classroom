@@ -1,9 +1,7 @@
 package com.example.virtualclassroom;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -11,9 +9,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,7 +34,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class UploadActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -115,6 +116,16 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
+    public String GetFileExtension(Uri uri) {
+
+        ContentResolver contentResolver = getContentResolver();
+
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+
+        // Returning the file Extension.
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
+
+    }
 
     private String uploadFile() {
         //if there is a file to upload
@@ -124,7 +135,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading");
             progressDialog.show();
-            StorageReference riversRef = mStorageRef.child("images/"+this.name);
+            StorageReference riversRef = mStorageRef.child("images/"+this.name+GetFileExtension(filePath));
             riversRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -158,7 +169,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                             progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
                         }
                     });
-            return riversRef.toString();
+            System.out.println("Done with the uploading here's the download url that you asked for peter "+riversRef.getDownloadUrl().toString());
+            return riversRef.getDownloadUrl().toString();
         }
         //if there is not any file
         else {
