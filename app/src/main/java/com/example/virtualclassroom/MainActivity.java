@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         if (user != null) {
             Intent intent = new Intent(getBaseContext(), Blog.class);
             startActivity(intent);
+            finish();
         }
 
 
@@ -94,6 +95,20 @@ public class MainActivity extends AppCompatActivity {
 
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 //                progressBar.setVisibility(View.VISIBLE);
                 //create user
                 auth.signInWithEmailAndPassword(email, password)
