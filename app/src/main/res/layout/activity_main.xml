@@ -18,8 +18,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="178dp"
+            app:srcCompat="@drawable/logo"
+            tools:srcCompat="@drawable/logo" />
 
         <Space
             android:layout_width="match_parent"
