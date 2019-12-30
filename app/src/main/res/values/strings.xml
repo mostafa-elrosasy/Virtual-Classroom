@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Virtual Classroom</string>
+    <string name="app_name">Lady Godiva\'s Blog</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
@@ -33,7 +33,6 @@
     <string name="chooseBtn">Choose Image</string>
     <string name="SubmitBtn">Submit Article</string>
     <string name="title_activity_the_blog">TheBlog</string>
-    <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 </resources>

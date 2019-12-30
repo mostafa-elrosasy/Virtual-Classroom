@@ -98,7 +98,10 @@ public class SubmitActivity extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             //if the upload is successfull
                             //hiding the progress dialog
-                            progressDialog.dismiss();
+                            try {
+                                progressDialog.dismiss();
+                            }catch (IllegalArgumentException e){}
+
 
                             //and displaying a success toast
                             Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
