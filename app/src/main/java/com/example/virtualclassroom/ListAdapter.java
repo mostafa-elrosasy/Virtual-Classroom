@@ -31,9 +31,9 @@ public class ListAdapter extends BaseAdapter {
         this.values = values;
         this.numbers = numbers;
         this.images = images;
-        for (int i = 0; i<7; i++){
-            System.out.println(values[i]+" "+numbers[i]+" "+images[i]);
-        }
+//        for (int i = 0; i<7; i++){
+//            System.out.println(values[i]+" "+numbers[i]+" "+images[i]);
+//        }
     }
 
     @Override

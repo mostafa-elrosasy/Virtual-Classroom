@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -136,6 +137,8 @@ public class SubmitActivity extends AppCompatActivity {
     private void makeObject(String url,String text) {
         JSONObject article = new JSONObject();
         try {
+            String usernames[] = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@");
+            article.put("username",usernames[0]);
             article.put("text",text);
             article.put("url",this.name);
         } catch (JSONException e) {

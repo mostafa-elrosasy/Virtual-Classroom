@@ -74,7 +74,7 @@ public class Blog extends AppCompatActivity {
                         System.out.println(body);
                         images[i] = url;
                         description[i] = body;
-                        titles[i] = "Blog Post #"+i;
+                        titles[i] = jsonObject.get("username").toString();
                         i++;
                     }catch (JSONException err){
                         Log.d("Error", err.toString());
